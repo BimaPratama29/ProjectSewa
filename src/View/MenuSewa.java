@@ -46,7 +46,7 @@ public class MenuSewa {
                     String username = input.nextLine();
 
                     // Tambahkan baris berikut untuk menyimpan booking ke ModelBarang
-                    modelBarang.bookingSewa(kodeBarang, jumlahBarang, username);
+                    modelBarang.bookingSewa(kodeBarang, jumlahBarang, username , 0);
                     break;
                 case 3:
                     System.out.println(" ============================== ");

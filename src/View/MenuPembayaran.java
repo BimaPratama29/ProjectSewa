@@ -3,8 +3,10 @@ package View;
 import Controller.ControllerUser;
 import Model.ModelPembayaran;
 import ModelJSON.ModelJSONPembayaran;
+import ModelJSON.ModelJSONSewa;
 import Node.NodePembayaran;
 import Node.NodeUser;
+import NodeJSON.NodeJSONSewa;
 
 import java.util.Scanner;
 
@@ -42,18 +44,31 @@ public class MenuPembayaran {
                     System.out.println(" ========================= ");
                     System.out.println("        Pembayaran ");
                     System.out.println(" ========================= ");
-                    System.out.print(" Harga barang : ");
-                    float hargabarang = input.nextFloat();
-                    System.out.print(" Masukkan uang yang dibayarkan: ");
-                    float totalPembayaran = input.nextFloat();
-                    float kembalian = modelPembayaran.prosesPembayaran(MenuUser.username,totalPembayaran, hargabarang);
-                    if(kembalian > 0){
-                        System.out.print("kembalian : "+kembalian);
+                    System.out.print("Masukkan kode sewa yang dibooking: ");
+                    String kodesewa = input.nextLine();
+                    ModelJSONSewa modelJSONSewa = new ModelJSONSewa();
+                    // Panggil metode untuk mendapatkan data sewa berdasarkan kode barang
+                    NodeJSONSewa sewa = modelJSONSewa.cariDataSewa(kodesewa);
+
+
+                    if (sewa != null) {
+                        float hargaSewa = sewa.getHargaSewa();
+
+                        System.out.println("Harga Sewa: " + hargaSewa); // Tampilkan harga sewa
+
+                        System.out.print("Masukkan uang yang dibayarkan: ");
+                        float totalPembayaran = input.nextFloat();
+                        float kembalian = modelPembayaran.prosesPembayaran(MenuUser.username, totalPembayaran, hargaSewa);
+
+                        if (kembalian > 0) {
+                            System.out.println("Kembalian: " + kembalian);
+                        }
+
+                        ModelJSONPembayaran modelJSONPembayaran = new ModelJSONPembayaran();
+                        modelJSONPembayaran.tambahBayarJSON(new NodePembayaran(MenuUser.username, totalPembayaran, hargaSewa, kembalian));
+                    } else {
+                        System.out.println("Data sewa tidak ditemukan.");
                     }
-
-
-                    ModelJSONPembayaran modelJSONPembayaran = new ModelJSONPembayaran();
-                    modelJSONPembayaran.tambahBayarJSON(new NodePembayaran(MenuUser.username, totalPembayaran , hargabarang , kembalian));
                     break;
                 case 3:
                     System.out.println(" Kembali ke Menu User....");

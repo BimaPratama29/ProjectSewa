@@ -1,17 +1,10 @@
 package Model;
 
-import ModelJSON.ModelJSONBarang;
 import ModelJSON.ModelJSONPembayaran;
-import ModelJSON.ModelJSONSewa;
 import Node.NodePembayaran;
-import Node.NodeUser;
-import NodeJSON.NodeJSONPembayaran;
 import View.warna;
-import ModelJSON.ModelJSONPembayaran;
 
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ModelPembayaran {
     private ArrayList<NodePembayaran> pembayaran ;
@@ -46,7 +39,7 @@ public class ModelPembayaran {
         System.out.println(" ========================= ");
         for(NodePembayaran transaksi : pembayaran) {
             System.out.println("Username: " + transaksi.getUname());
-            System.out.println("harga barang : " + transaksi.getHargabarang());
+            System.out.println("harga sewa : " + transaksi.getHargabarang());
             System.out.println("Masukkan uang yang dibayarkan : " + transaksi.getTotalpembayaran());
             System.out.println("Kembalian: " + transaksi.getKembalian());
             System.out.println(" ========================= ");

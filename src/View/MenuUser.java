@@ -12,8 +12,8 @@ import View.warna;
 import javax.swing.*;
 
 public class MenuUser {
-    public static Scanner input = new Scanner(System.in);
-    private ControllerUser controllerUser;
+    private final Scanner input = new Scanner(System.in);
+    private final ControllerUser controllerUser;
     public static String username;
 
     public MenuUser(ControllerUser controller){

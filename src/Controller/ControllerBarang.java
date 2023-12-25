@@ -16,8 +16,8 @@ public class ControllerBarang {
         model.ViewStok();
     }
 
-    public void tambahStokBarang(String kodeBarang, String namaBarang, int stok) {
-        model.tambahStokBarang(kodeBarang, namaBarang, stok);
+    public void tambahStokBarang(String kodeBarang, String namaBarang, int stok , float hargaSewa) {
+        model.tambahStokBarang(kodeBarang, namaBarang, stok , hargaSewa);
     }
 
     public void bookingSewa(String kodeBarang, int jumlah) {

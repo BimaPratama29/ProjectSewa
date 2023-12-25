@@ -6,7 +6,7 @@ public class NodePembayaran {
     private float totalpembayaran;
     private float kembalian;
 
-    public NodePembayaran(String uname, float totalpembayaran,float hargabarang,  float kembalian) {
+    public NodePembayaran(String uname, float totalpembayaran, float hargabarang, float kembalian) {
         this.uname = uname;
         this.hargabarang = hargabarang;
         this.totalpembayaran = totalpembayaran;

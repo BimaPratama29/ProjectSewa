@@ -48,9 +48,10 @@ public class ModelJSONSewa {
                 String namaBarang = (String) jsonObject.get("namaBarang");
                 int jumlah = Integer.parseInt(jsonObject.get("jumlah").toString());
                 String username = (String) jsonObject.get("username");
+                int hargaSewa = Integer.parseInt(jsonObject.get("hargaSewa").toString());
 
 
-                listSewa.add(new NodeJSONSewa(kodeSewa, kodeBarang, namaBarang, jumlah, username));
+                listSewa.add(new NodeJSONSewa(kodeSewa, kodeBarang, namaBarang, jumlah, username,hargaSewa));
             }
 
         } catch (IOException | ParseException e) {
@@ -72,6 +73,16 @@ public class ModelJSONSewa {
             arraySewa.add(objSewa);
         }
         return arraySewa;
+    }
+    public NodeJSONSewa cariDataSewa(String kodeBarang) {
+        List<NodeJSONSewa> sewaList = readFromJSON();
+
+        for (NodeJSONSewa sewa : sewaList) {
+            if (sewa.getKodeBarang().equals(kodeBarang)) {
+                return sewa;
+            }
+        }
+        return null;
     }
 
     public void tambahDataJSON(NodeJSONSewa sewa) {

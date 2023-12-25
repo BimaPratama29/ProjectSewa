@@ -121,11 +121,11 @@ public class MenuAdmin {
         }
 
         ModelBarang modelBarang = new ModelBarang();
-        modelBarang.tambahStokBarang(kodeBarang, namaBarang, stokBarang);
+        modelBarang.tambahStokBarang(kodeBarang, namaBarang, stokBarang ,0 );
 
         // Tambahkan baris berikut untuk menyimpan data ke JSON
         ModelJSONBarang modelJSONBarang = new ModelJSONBarang();
-        modelJSONBarang.tambahDataJSON(new NodeBarang(kodeBarang, namaBarang, stokBarang));
+        modelJSONBarang.tambahDataJSON(new NodeBarang(kodeBarang, namaBarang, stokBarang , 0));
 
         System.out.println("Barang berhasil ditambahkan.");
     }

@@ -41,11 +41,12 @@ public class ModelJSONBarang {
 
             for (Object o : arrayBarang) {
                 JSONObject jsonObject = (JSONObject) o;
+                float hargaSewa = ((Number) jsonObject.get("hargaSewa")).floatValue();
                 String kodeBarang = (String) jsonObject.get("kodeBarang");
                 String namaBarang = (String) jsonObject.get("namaBarang");
                 long stok = (long) jsonObject.get("stok");
 
-                NodeBarang barang = new NodeBarang(kodeBarang, namaBarang, (int) stok);
+                NodeBarang barang = new NodeBarang(kodeBarang, namaBarang, (int) stok ,  hargaSewa);
                 stokBarang.add(barang);
             }
 
@@ -63,6 +64,7 @@ public class ModelJSONBarang {
             objBarang.put("kodeBarang", barang.getKodeBarang());
             objBarang.put("namaBarang", barang.getNamaBarang());
             objBarang.put("stok", barang.getStok());
+            objBarang.put("hargaSewa",barang.getHargaSewa());
             arrayBarang.add(objBarang);
         }
         return arrayBarang;
