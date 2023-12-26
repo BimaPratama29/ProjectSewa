@@ -55,6 +55,7 @@ public class MenuSewa {
                     MenuPembayaran menubayar = new MenuPembayaran(Main.controllerUser, Main.modelPembayaran);
                     menubayar.viewBayar(null);
                 case 4:
+                    Main.main(null);
                     break;
 
                 default:

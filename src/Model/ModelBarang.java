@@ -22,8 +22,7 @@ public class ModelBarang {
 
     public void ViewStok() {
         for (NodeBarang barang : stokBarang) {
-            System.out.println(barang.getKodeBarang() + " - " + barang.getNamaBarang() +
-                    warna.color_purple + " - Stok: " + warna.text_reset + barang.getStok());
+            System.out.println(barang.getKodeBarang() + " - " + barang.getNamaBarang() + warna.color_purple + " - Stok: " + warna.text_reset + barang.getStok() +  warna.color_purple + " - Harga Sewa: " + warna.text_reset + barang.getHargaSewa());
         }
     }
 

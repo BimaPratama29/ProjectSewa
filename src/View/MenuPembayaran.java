@@ -30,7 +30,7 @@ public class MenuPembayaran {
             System.out.println(" ============================= ");
             System.out.println(warna.color_green + " 1. Lihat Transaksi \n 2. Proses Pembayaran \n 3. Kembali" + warna.text_reset);
             System.out.print(" Masukan Opsi : ");
-            pil = input.nextInt();
+            pil = input.nextInt(); input.nextLine();
 
             switch (pil) {
                 case 1:

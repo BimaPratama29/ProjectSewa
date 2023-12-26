@@ -7,17 +7,22 @@ import View.MenuSewa;
 import java.util.ArrayList;
 import Node.NodeUser;
 
-public class ModelUser {
+
+public class ModelUser extends ModelTemplate{
     private ArrayList<NodeUser> datausers;
     private ModelJSONUser modelJSONUser;
 
     public ModelUser() {
+
         datausers = new ArrayList<>();
         modelJSONUser = new ModelJSONUser();
         loadUsers();
     }
 
-    private void loadUsers() {
+
+
+    @Override
+     public void loadUsers() {
         datausers = modelJSONUser.readFromJSON();
     }
 
@@ -25,7 +30,7 @@ public class ModelUser {
         datausers.add(new NodeUser(uname, pass));
         modelJSONUser.writeToJSON(datausers);
     }
-
+@Override
     public boolean loginUser(String uname, String pass){
         ArrayList<NodeUser> userList = modelJSONUser.readFromJSON();
         for (int i = 0; i < userList.size(); i++) {
@@ -38,13 +43,14 @@ public class ModelUser {
         return false;
     }
 
+@Override
     public void viewAllUsers() {
         for (NodeUser user : datausers) {
             user.viewUser();
             System.out.println("===================");
         }
     }
-
+@Override
     public void updateUser(String oldUname, String oldPass, String newUname, String newPass) {
         boolean userFound = false;
 
@@ -64,7 +70,7 @@ public class ModelUser {
             System.out.println("User tidak ditemukan.");
         }
     }
-
+@Override
     public void deleteUser(String uname) {
         NodeUser userToRemove = null;
         for (NodeUser user : datausers) {

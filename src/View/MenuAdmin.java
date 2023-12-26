@@ -106,6 +106,7 @@ public class MenuAdmin {
         String namaBarang = input.nextLine();
         System.out.print("Masukkan jumlah stok barang: ");
 
+
         int stokBarang;
         while (true) {
             try {
@@ -119,13 +120,16 @@ public class MenuAdmin {
                 System.out.println("Masukkan angka yang valid.");
             }
         }
+        System.out.print("Masukkan Harga Sewa : ");
+        float hargaSewa = input.nextFloat();
+
 
         ModelBarang modelBarang = new ModelBarang();
-        modelBarang.tambahStokBarang(kodeBarang, namaBarang, stokBarang ,0 );
+        modelBarang.tambahStokBarang(kodeBarang, namaBarang, stokBarang , hargaSewa );
 
         // Tambahkan baris berikut untuk menyimpan data ke JSON
         ModelJSONBarang modelJSONBarang = new ModelJSONBarang();
-        modelJSONBarang.tambahDataJSON(new NodeBarang(kodeBarang, namaBarang, stokBarang , 0));
+        modelJSONBarang.tambahDataJSON(new NodeBarang(kodeBarang, namaBarang, stokBarang , hargaSewa));
 
         System.out.println("Barang berhasil ditambahkan.");
     }

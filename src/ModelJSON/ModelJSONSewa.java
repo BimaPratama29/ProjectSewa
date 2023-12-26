@@ -48,7 +48,7 @@ public class ModelJSONSewa {
                 String namaBarang = (String) jsonObject.get("namaBarang");
                 int jumlah = Integer.parseInt(jsonObject.get("jumlah").toString());
                 String username = (String) jsonObject.get("username");
-                int hargaSewa = Integer.parseInt(jsonObject.get("hargaSewa").toString());
+                float hargaSewa = Float.parseFloat(jsonObject.get("hargaSewa").toString());
 
 
                 listSewa.add(new NodeJSONSewa(kodeSewa, kodeBarang, namaBarang, jumlah, username,hargaSewa));
@@ -70,6 +70,7 @@ public class ModelJSONSewa {
             objSewa.put("namaBarang", sewa.namaBarang);
             objSewa.put("jumlah", sewa.jumlah);
             objSewa.put("username", sewa.username);
+            objSewa.put("hargaSewa", sewa.hargaSewa);
             arraySewa.add(objSewa);
         }
         return arraySewa;

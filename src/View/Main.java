@@ -9,7 +9,7 @@ import Node.NodeUser;
 import java.util.Scanner;
 
 public class Main {
-    static ModelUser modelUser = new ModelUser();
+    public static ModelUser modelUser = new ModelUser();
     public  static ControllerUser controllerUser = new ControllerUser(modelUser);
     static MenuUser menuUser = new MenuUser(controllerUser);
     static MenuAdmin menuAdmin = new MenuAdmin(controllerUser);

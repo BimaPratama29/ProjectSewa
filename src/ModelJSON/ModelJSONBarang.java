@@ -41,10 +41,10 @@ public class ModelJSONBarang {
 
             for (Object o : arrayBarang) {
                 JSONObject jsonObject = (JSONObject) o;
-                float hargaSewa = ((Number) jsonObject.get("hargaSewa")).floatValue();
                 String kodeBarang = (String) jsonObject.get("kodeBarang");
                 String namaBarang = (String) jsonObject.get("namaBarang");
                 long stok = (long) jsonObject.get("stok");
+                float hargaSewa = Float.parseFloat(jsonObject.get("hargaSewa").toString());
 
                 NodeBarang barang = new NodeBarang(kodeBarang, namaBarang, (int) stok ,  hargaSewa);
                 stokBarang.add(barang);
