@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class ModelJSONAdmin {
     public String userf;
-    NodeJSONSewa nodeJSONSewa = new NodeJSONSewa(userf, userf, userf, 0, userf , 0);
+    NodeJSONSewa nodeJSONSewa = new NodeJSONSewa(userf, userf,  0,userf  , 0);
 
     public ModelJSONAdmin() {
         this.userf = "src/Database/admin.json";

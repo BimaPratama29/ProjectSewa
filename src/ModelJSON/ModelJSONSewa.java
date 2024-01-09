@@ -16,6 +16,7 @@ import java.util.List;
 public class ModelJSONSewa {
     private String fname = "src/Database/sewabarang.json";
     List<NodeJSONSewa> dataSewa;
+    NodeJSONSewa nodeJSONSewa;
 
     public ModelJSONSewa() {
         this.dataSewa = readFromJSON();
@@ -43,15 +44,14 @@ public class ModelJSONSewa {
 
             for (Object o : arraySewa) {
                 JSONObject jsonObject = (JSONObject) o;
-                String kodeSewa = (String) jsonObject.get("kodeSewa");
                 String kodeBarang = (String) jsonObject.get("kodeBarang");
                 String namaBarang = (String) jsonObject.get("namaBarang");
                 int jumlah = Integer.parseInt(jsonObject.get("jumlah").toString());
                 String username = (String) jsonObject.get("username");
-                float hargaSewa = Float.parseFloat(jsonObject.get("hargaSewa").toString());
+                float hargaBarang = Float.parseFloat(jsonObject.get("hargaBarang").toString());
 
 
-                listSewa.add(new NodeJSONSewa(kodeSewa, kodeBarang, namaBarang, jumlah, username,hargaSewa));
+                listSewa.add(new NodeJSONSewa( kodeBarang, namaBarang, jumlah, username,hargaBarang));
             }
 
         } catch (IOException | ParseException e) {
@@ -65,12 +65,11 @@ public class ModelJSONSewa {
         JSONArray arraySewa = new JSONArray();
         for (NodeJSONSewa sewa : dataSewa) {
             JSONObject objSewa = new JSONObject();
-            objSewa.put("kodeSewa", sewa.kodeSewa);
             objSewa.put("kodeBarang", sewa.kodeBarang);
             objSewa.put("namaBarang", sewa.namaBarang);
             objSewa.put("jumlah", sewa.jumlah);
             objSewa.put("username", sewa.username);
-            objSewa.put("hargaSewa", sewa.hargaSewa);
+            objSewa.put("hargaBarang", sewa.hargaBarang);
             arraySewa.add(objSewa);
         }
         return arraySewa;

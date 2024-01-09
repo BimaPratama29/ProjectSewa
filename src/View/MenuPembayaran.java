@@ -44,7 +44,7 @@ public class MenuPembayaran {
                     System.out.println(" ========================= ");
                     System.out.println("        Pembayaran ");
                     System.out.println(" ========================= ");
-                    System.out.print("Masukkan kode sewa yang dibooking: ");
+                    System.out.print("Masukkan kode barang yang dibooking: ");
                     String kodesewa = input.nextLine();
                     ModelJSONSewa modelJSONSewa = new ModelJSONSewa();
                     // Panggil metode untuk mendapatkan data sewa berdasarkan kode barang
@@ -52,20 +52,20 @@ public class MenuPembayaran {
 
 
                     if (sewa != null) {
-                        float hargaSewa = sewa.getHargaSewa();
+                        float hargaBarang = sewa.getHargaBarang();
 
-                        System.out.println("Harga Sewa: " + hargaSewa); // Tampilkan harga sewa
+                        System.out.println("Harga Sewa: " + hargaBarang); // Tampilkan harga sewa
 
                         System.out.print("Masukkan uang yang dibayarkan: ");
                         float totalPembayaran = input.nextFloat();
-                        float kembalian = modelPembayaran.prosesPembayaran(MenuUser.username, totalPembayaran, hargaSewa);
+                        float kembalian = modelPembayaran.prosesPembayaran(MenuUser.username, totalPembayaran, hargaBarang);
 
                         if (kembalian > 0) {
                             System.out.println("Kembalian: " + kembalian);
                         }
 
                         ModelJSONPembayaran modelJSONPembayaran = new ModelJSONPembayaran();
-                        modelJSONPembayaran.tambahBayarJSON(new NodePembayaran(MenuUser.username, totalPembayaran, hargaSewa, kembalian));
+                        modelJSONPembayaran.tambahBayarJSON(new NodePembayaran(MenuUser.username, totalPembayaran, hargaBarang, kembalian));
                     } else {
                         System.out.println("Data sewa tidak ditemukan.");
                     }

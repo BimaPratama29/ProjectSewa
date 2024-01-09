@@ -1,6 +1,6 @@
 package Node;
-
-public class NodeAdmin {
+import Interface.Node;
+public class NodeAdmin implements Node {
     String admin;
     String pass1;
 

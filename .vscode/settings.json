@@ -1,8 +1,0 @@
-{
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "c:\\Users\\Lyxx\\Downloads\\json-simple-1.1.jar\\json-simple-1.1.jar",
-        "c:\\Users\\Lyxx\\Downloads\\gson-2.2.2.jar"
-    ],
-    "java.debug.settings.onBuildFailureProceed": true
-}

@@ -5,15 +5,20 @@ import Model.ModelPembayaran;
 import Model.ModelUser;
 import ModelJSON.ModelJSONUser;
 import Node.NodeUser;
+import Model.ModelPembayaran;
 
 import java.util.Scanner;
+
+import static java.lang.System.exit;
 
 public class Main {
     public static ModelUser modelUser = new ModelUser();
     public  static ControllerUser controllerUser = new ControllerUser(modelUser);
-    static MenuUser menuUser = new MenuUser(controllerUser);
-    static MenuAdmin menuAdmin = new MenuAdmin(controllerUser);
     static ModelPembayaran modelPembayaran = new ModelPembayaran();
+    //public static ModelPembayaran modelPembayaran;
+    static MenuUser menuUser = new MenuUser(controllerUser);
+    static MenuAdmin menuAdmin = new MenuAdmin(controllerUser );
+
 
     public static void main(String[] args) {
         ModelAdmin admin = new ModelAdmin();
@@ -44,7 +49,12 @@ public class Main {
                     // Admin
                     menuAdmin.loginAdmin();
                     break;
+                case 3:
+                    //exit
+                    exit(0);
+                    break;
             }
-        } while (plh != 3);
+        } while (plh != 2);
+
     }
 }

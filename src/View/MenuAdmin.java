@@ -2,6 +2,7 @@ package View;
 
 import Controller.ControllerUser;
 import Model.ModelAdmin;
+import Model.ModelPembayaran;
 import Model.ModelUser;
 import ModelJSON.ModelJSONUser;
 import Node.NodeUser;
@@ -19,9 +20,11 @@ public class MenuAdmin {
     static ModelUser modelUser = new ModelUser();
     static ModelAdmin modelAdmin = new ModelAdmin();
     private ControllerUser controller;
+    static ModelPembayaran modelPembayaran = new ModelPembayaran() ;
 
-    public MenuAdmin(ControllerUser controller) {
+    public MenuAdmin(ControllerUser controller ) {
         this.controller = controller;
+
     }
 
     public static void main(String[] args) {
@@ -59,7 +62,7 @@ public class MenuAdmin {
                     modelUser.viewAllUsers();
                     break;
                 case 2:
-                    // modelUser.viewPembayaran(); // Uncomment this line if the method exists
+                    modelPembayaran.viewTransaksi();
                     break;
                 case 3:
                     input.nextLine(); // Consume the newline character
@@ -83,6 +86,7 @@ public class MenuAdmin {
                     break;
                 case 5:
                     System.out.println(" Kembali Ke Menu Login ");
+                    Main.main(null);
                     break;
                 case 6:
                     tambahBarang();

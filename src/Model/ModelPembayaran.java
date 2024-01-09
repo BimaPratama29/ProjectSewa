@@ -10,8 +10,6 @@ public class ModelPembayaran {
     private ArrayList<NodePembayaran> pembayaran ;
     private final ModelJSONPembayaran modelJSONPembayaran;
 
-
-
     public ModelPembayaran(){
         pembayaran = new ArrayList<>();
         modelJSONPembayaran = new ModelJSONPembayaran();
@@ -39,8 +37,8 @@ public class ModelPembayaran {
         System.out.println(" ========================= ");
         for(NodePembayaran transaksi : pembayaran) {
             System.out.println("Username: " + transaksi.getUname());
-            System.out.println("harga sewa : " + transaksi.getHargabarang());
-            System.out.println("Masukkan uang yang dibayarkan : " + transaksi.getTotalpembayaran());
+            System.out.println("harga barang : " + transaksi.getHargabarang());
+            System.out.println("uang yang dibayarkan : " + transaksi.getTotalpembayaran());
             System.out.println("Kembalian: " + transaksi.getKembalian());
             System.out.println(" ========================= ");
         }

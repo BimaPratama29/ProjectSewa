@@ -22,15 +22,15 @@ public class ModelBarang {
 
     public void ViewStok() {
         for (NodeBarang barang : stokBarang) {
-            System.out.println(barang.getKodeBarang() + " - " + barang.getNamaBarang() + warna.color_purple + " - Stok: " + warna.text_reset + barang.getStok() +  warna.color_purple + " - Harga Sewa: " + warna.text_reset + barang.getHargaSewa());
+            System.out.println(barang.getKodeBarang() + " - " + barang.getNamaBarang() + warna.color_purple + " - Stok: " + warna.text_reset + barang.getStok() +  warna.color_purple + " - Harga Sewa: " + warna.text_reset + barang.getListharga());
         }
     }
 
-    public void tambahStokBarang(String kodeBarang, String namaBarang, int stok , float hargaSewa) {
-        stokBarang.add(new NodeBarang(kodeBarang, namaBarang, stok,hargaSewa));
+    public void tambahStokBarang(String kodeBarang, String namaBarang, int stok , float listharga) {
+        stokBarang.add(new NodeBarang(kodeBarang, namaBarang, stok , listharga ));
     }
 
-    public void bookingSewa(String kodeBarang, int jumlah, String username , float hargaSewa) {
+    public void bookingSewa(String kodeBarang, int jumlah, String username , float hargaBarang) {
         NodeBarang stok = cariBarang(kodeBarang);
         if (stok != null) {
             if (stok.getStok() >= jumlah) {
@@ -38,7 +38,7 @@ public class ModelBarang {
                 System.out.println("Booking berhasil! Terima kasih.");
 
                 // Tambah data pemesanan ke list
-                sewaList.add(new NodeJSONSewa(generateKodeSewa(), stok.getKodeBarang(), stok.getNamaBarang(), jumlah, username,stok.getHargaSewa()));
+                sewaList.add(new NodeJSONSewa( stok.getKodeBarang(), stok.getNamaBarang() , jumlah , username , stok.getListharga()));
 
                 // Tambahkan baris berikut untuk menyimpan data ke JSON
                 ModelJSONSewa modelJSONSewa = new ModelJSONSewa();

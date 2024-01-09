@@ -4,13 +4,13 @@ public class NodeJSONBarang {
     String kodeBarang;
     String namaBarang;
     int stok;
-    float hargaSewa;
+    float hargaBarang;
 
-    public NodeJSONBarang(String kodeBarang, String namaBarang, int stok , float hargaSewa) {
+    public NodeJSONBarang(String kodeBarang, String namaBarang, int stok , float hargaBarang) {
         this.kodeBarang = kodeBarang;
         this.namaBarang = namaBarang;
         this.stok = stok;
-        this.hargaSewa = hargaSewa;
+        this.hargaBarang = hargaBarang;
     }
 
     // Getters and setters for kodeBarang, namaBarang, and stok

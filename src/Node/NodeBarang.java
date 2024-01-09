@@ -4,17 +4,20 @@ public class NodeBarang {
     String kodeBarang;
     String namaBarang;
     int stok;
-    float hargaSewa;
+    float listharga;
 
-    public NodeBarang(String kodeBarang, String namaBarang, int stok , float hargaSewa) {
+
+    public NodeBarang(String kodeBarang, String namaBarang, int stok , float listharga) {
         this.kodeBarang = kodeBarang;
         this.namaBarang = namaBarang;
         this.stok = stok;
-        this.hargaSewa = hargaSewa;
+        this.listharga = listharga;
+
     }
 
-    public float getHargaSewa() {
-        return hargaSewa;
+
+    public float getListharga() {
+        return listharga;
     }
 
     public String getKodeBarang() {
