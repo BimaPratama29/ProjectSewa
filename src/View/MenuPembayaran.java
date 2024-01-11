@@ -28,19 +28,12 @@ public class MenuPembayaran {
             System.out.println(" ============================= ");
             System.out.println("        Menu Pembayaran ");
             System.out.println(" ============================= ");
-            System.out.println(warna.color_green + " 1. Lihat Transaksi \n 2. Proses Pembayaran \n 3. Kembali" + warna.text_reset);
+            System.out.println(warna.color_green + "1. Proses Pembayaran \n 3. Kembali" + warna.text_reset);
             System.out.print(" Masukan Opsi : ");
             pil = input.nextInt(); input.nextLine();
 
             switch (pil) {
                 case 1:
-                    System.out.println(" ========================= ");
-                    System.out.println("     Lihat Transaksi ");
-                    System.out.println(" ========================= ");
-                    modelPembayaran.viewTransaksi();
-                    // Panggil method untuk menampilkan transaksi
-                    break;
-                case 2:
                     System.out.println(" ========================= ");
                     System.out.println("        Pembayaran ");
                     System.out.println(" ========================= ");
@@ -70,7 +63,7 @@ public class MenuPembayaran {
                         System.out.println("Data sewa tidak ditemukan.");
                     }
                     break;
-                case 3:
+                case 2:
                     System.out.println(" Kembali ke Menu User....");
                     break;
                 default:

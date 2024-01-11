@@ -17,7 +17,7 @@ public class Main {
     static ModelPembayaran modelPembayaran = new ModelPembayaran();
     //public static ModelPembayaran modelPembayaran;
     static MenuUser menuUser = new MenuUser(controllerUser);
-    static MenuAdmin menuAdmin = new MenuAdmin(controllerUser );
+    static MenuAdmin menuAdmin = new MenuAdmin(controllerUser, modelPembayaran );
 
 
     public static void main(String[] args) {

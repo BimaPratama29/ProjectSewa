@@ -20,10 +20,11 @@ public class MenuAdmin {
     static ModelUser modelUser = new ModelUser();
     static ModelAdmin modelAdmin = new ModelAdmin();
     private ControllerUser controller;
-    static ModelPembayaran modelPembayaran = new ModelPembayaran() ;
+    static ModelPembayaran modelPembayaran;
 
-    public MenuAdmin(ControllerUser controller ) {
+    public MenuAdmin(ControllerUser controller, ModelPembayaran modelPembayaran ) {
         this.controller = controller;
+        this.modelPembayaran = modelPembayaran;
 
     }
 
@@ -53,18 +54,16 @@ public class MenuAdmin {
             System.out.println("=====================================");
             System.out.println("            Menu Admin ");
             System.out.println("=====================================");
-            System.out.println(warna.color_green + " 1.View User\n 2.View Transaksi\n 3.Update User\n 4.Delete User \n 5.Kembali\n 6.Tambah Barang \n 7.View User Sewa");
+            System.out.println(warna.color_green + " 1.View Transaksi\n 2.Update User\n 3.Delete User \n 4.Tambah Barang \n 5.View User Sewa\n 6.Kembali" + //
+                    "");
             System.out.print(" Input Pilihan : ");
             plh = input.nextInt();
 
             switch (plh) {
                 case 1:
-                    modelUser.viewAllUsers();
-                    break;
-                case 2:
                     modelPembayaran.viewTransaksi();
                     break;
-                case 3:
+                case 2:
                     input.nextLine(); // Consume the newline character
                     System.out.print("Masukkan username lama: ");
                     String oldUname = input.nextLine();
@@ -76,7 +75,7 @@ public class MenuAdmin {
                     String newPass = input.nextLine();
                     modelUser.updateUser(oldUname, oldPass, newUname, newPass);
                     break;
-                case 4:
+                case 3:
                     input.nextLine(); // Consume the newline character
                     System.out.print("Masukkan username yang akan dihapus: ");
                     String unameToDelete = input.nextLine();
@@ -84,16 +83,15 @@ public class MenuAdmin {
                     String passToDelete = input.nextLine();
                     modelUser.deleteUser(unameToDelete);
                     break;
-                case 5:
-                    System.out.println(" Kembali Ke Menu Login ");
-                    Main.main(null);
-                    break;
-                case 6:
+                case 4:
                     tambahBarang();
                     break;
-                case 7:
-                    // Menampilkan data user yang sedang menyewa
+                case 5:
                     viewUserSewa();
+                    break;
+                case 6:
+                    System.out.println(" Kembali Ke Menu Login ");
+                    Main.main(null);
                     break;
                 default:
                     System.out.println(" Pilihan Tidak Tersedia.");
@@ -150,8 +148,9 @@ public class MenuAdmin {
         System.out.println("     Data User yang Sedang Menyewa");
         System.out.println("=====================================");
         for (NodeJSONSewa sewa : dataSewa) {
-            System.out.println("Kode Barang: " + sewa.getNamaBarang());
+            System.out.println("Kode Barang: " + sewa.getKodeBarang());
             System.out.println("Nama Barang: " + sewa.getNamaBarang());
+            System.out.println("Harga Barang: " + sewa.getHargaBarang());
             System.out.println("Username User: " + sewa.getUsername());
             System.out.println("-------------------------------");
         }

@@ -23,11 +23,11 @@ public class NodeJSONSewa {
     }
 
     public String getNamaBarang() {
-        return null;
+        return namaBarang;
 }
 
 public String getUsername() {
-    return null;
+    return username;
 }
 
 
